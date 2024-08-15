@@ -23,9 +23,9 @@ DAGS_DIR="$(pwd)/dags"
 if [ ! -d "$DAGS_DIR" ]; then
   echo -e "\nДиректория $DAGS_DIR не существует. Создаю..."
   mkdir -p "$DAGS_DIR"
-  echo "Директория $DAGS_DIR успешно создана."
+  echo -e "Директория $DAGS_DIR успешно создана.\n"
 else
-  echo -e "\nДиректория $DAGS_DIR уже существует."
+  echo -e "\nДиректория $DAGS_DIR уже существует.\n"
 fi
 
 export AIRFLOW_VERSION=2.0.1
@@ -55,7 +55,7 @@ airflow users create \
 airflow webserver -p 8080 &  
 airflow scheduler &  
 
-echo -e "\nAirflow установлен и запущен в директории ${AIRFLOW_HOME}. Веб-интерфейс доступен по адресу: http://localhost:8080"
+echo -e "\n\nAirflow установлен и запущен в директории ${AIRFLOW_HOME}. Веб-интерфейс доступен по адресу: http://localhost:8080\n\n"
 
 
 ## Остановить

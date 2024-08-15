@@ -40,3 +40,27 @@
 Все DAG расположены в папке 
 
 dags_folder = /home/irina/airflow/dags
+
+
+## Курсы валют 
+
+1. Поднимаем Postgresql:
+```bash
+docker run -d -p 15432:5432 \
+-e POSTGRES_PASSWORD=password \
+-e POSTGRES_USER=airflow_user \
+-e POSTGRES_DB=airflow_examples \
+-v postgres_airflow_example:/var/lib/postgresql/data postgres:13.1
+```
+
+2. Изменяем БД по умолчанию на:
+```bash
+# Variable: AIRFLOW__DATABASE__SQL_ALCHEMY_CONN
+#
+sql_alchemy_conn = postgresql+psycopg2://airflow_user:password@localhost:15432/airflow_examples
+```
+
+3. Установливаем провайдер PostgreSQL
+```bash
+pip install apache-airflow-providers-postgres
+```
