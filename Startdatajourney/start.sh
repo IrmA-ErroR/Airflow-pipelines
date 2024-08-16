@@ -39,7 +39,7 @@ export AIRFLOW__CORE__DAGS_FOLDER=$DAGS_DIR
 
 pip install "apache-airflow[postgres,aws]==${AIRFLOW_VERSION}" --constraint "${CONSTRAINT_URL}"
 
-# Инициализация БД
+# Инициализация БД метаданных
 airflow db init
 
 # Созданеи администратора
